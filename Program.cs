@@ -66,7 +66,7 @@ namespace fc_core
         {
             var ticksSinceInstall = CurrentTime - InstallTime;
             var daysSinceInstall = ticksSinceInstall / 86400d;
-            var daysInFuture = Math.Pow(Power, daysSinceInstall) - 2;
+            var daysInFuture = Math.Pow(Power, daysSinceInstall) - 1;
             var futureTime = CurrentTime + (ulong)(daysInFuture * 86400);
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("{0} => {1} / ({2})      ", new NormDateTime(CurrentTime), new NormDateTime(futureTime), Power);
