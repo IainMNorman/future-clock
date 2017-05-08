@@ -69,7 +69,7 @@ namespace fc_core
             var daysInFuture = Math.Pow(Power, daysSinceInstall) - 1;
             var futureTime = CurrentTime + (ulong)(daysInFuture * 86400);
             Console.SetCursorPosition(0, 0);
-            Console.WriteLine("{0} => {1} / ({2})      ", new NormDateTime(CurrentTime), new NormDateTime(futureTime), Power);
+            Console.WriteLine("{0} => {1}      ", new NormDateTime(CurrentTime), new NormDateTime(futureTime), Power);
         }
     }
 }
