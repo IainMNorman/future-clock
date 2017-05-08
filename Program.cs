@@ -12,9 +12,9 @@ namespace fc_core
 
         public static void Main(string[] args)
         {
-            InstallTime = 1479289234;
+            InstallTime = 1684402440;
             CurrentTime = InstallTime;
-            Power = 8d;
+            Power = Math.PI;
 
             Console.Clear();
 
@@ -66,10 +66,15 @@ namespace fc_core
         {
             var ticksSinceInstall = CurrentTime - InstallTime;
             var daysSinceInstall = ticksSinceInstall / 86400d;
-            var daysInFuture = Math.Pow(Power, daysSinceInstall) - 1;
+            var daysInFuture = Math.Pow(Power * (daysSinceInstall > 1 ? daysSinceInstall : 1), daysSinceInstall) - 1;
             var futureTime = CurrentTime + (ulong)(daysInFuture * 86400);
             Console.SetCursorPosition(0, 0);
-            Console.WriteLine("{0} => {1}      ", new NormDateTime(CurrentTime), new NormDateTime(futureTime), Power);
+            Console.WriteLine("{0} => {1}     {2:0.0} / {3:0.0} / {4:0.0}", 
+                new NormDateTime(CurrentTime),  
+                new NormDateTime(futureTime), 
+                Power * (daysSinceInstall > 1 ? daysSinceInstall : 1), 
+                daysInFuture,
+                daysSinceInstall);
         }
     }
 }
